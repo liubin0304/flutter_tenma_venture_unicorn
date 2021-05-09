@@ -1,4 +1,4 @@
-# flutter_tenma_venture_widget
+# flutter_tenma_venture_unicorn
 
 A new Flutter package.
 
