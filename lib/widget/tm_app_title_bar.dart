@@ -16,6 +16,7 @@ class TMAppTitleBarConfig {
   static const int TITLE_BAR_STYLE_CEC = 12;
   static const int TITLE_BAR_STYLE_NET = 13;
   static const int TITLE_BAR_STYLE_NEI = 14;
+  static const int TITLE_BAR_STYLE_ITC = 15;
 }
 
 /// 标题栏
@@ -163,6 +164,10 @@ class _TMAppTitleBarState extends State<TMAppTitleBar> {
       leftType = LEFT_TYPE_NONE;
       centerType = CENTER_TYPE_EDIT;
       rightType = RIGHT_TYPE_IMAGE;
+    } else if (widget.style == TMAppTitleBarConfig.TITLE_BAR_STYLE_ITC) {
+      leftType = LEFT_TYPE_IMAGE;
+      centerType = CENTER_TYPE_TEXT;
+      rightType = RIGHT_TYPE_CUSTOM;
     }
   }
 
@@ -250,6 +255,8 @@ class _TMAppTitleBarState extends State<TMAppTitleBar> {
       );
 
       widgets.add(rightWidget);
+    } else if (rightType == RIGHT_TYPE_CUSTOM) {
+      widgets.add(widget.rightCustom);
     } else {
       widgets.add(buildNoneWidget());
     }
